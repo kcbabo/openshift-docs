@@ -31,13 +31,13 @@ Additional details on technical differences and support scope are documented in 
 
 
 == Using Fuse Integration Services
-You can start using Fuse Integration Services by creating application and deploying it to OpenShift. You can use Application Development workflows to to create an application. These are: 
+You can start using Fuse Integration Services by creating an application and deploying it to OpenShift using one of the following application development workflows:
 
 * Fabric8 Maven Workflow
 * OpenShift Source-to-Image (s2i) Workflow
 
-=== Fabric8 Maven Workflow
-Creates a new project based off a Maven application template created through Archetype catalog. This catalog provides examples of Java and Karaf projects and supports S2I and Maven deployment workflows.
+Both workflows begin with creating a new project from a Maven archetype.
+
 
 ==== Maven Archetypes Catalog
 The Maven Archetype catalog includes the following examples:
@@ -68,7 +68,7 @@ Begin by selecting the archetype which matches the type of application you would
 
 ==== Simple steps to create an application from Maven Archetype Catalog
 
-. Use the Maven archetype catalog to create a sample project with the required resources. In order to use archetypes it is important to configure the Maven repositories which holds the archetypes and artifacts you may need:
+Use the Maven archetype catalog to create a sample project with the required resources. In order to use archetypes it is important to configure the Maven repositories which holds the archetypes and artifacts you may need:
 
 * JBoss Fuse repository: `https://repo.fusesource.com/nexus/content/groups/public/`
 * RedHat GA repository: `https://maven.repository.redhat.com/ga`
@@ -85,7 +85,12 @@ $ mvn archetype:generate \
 [NOTE]
 Replace [archetype-name] with the name of the archetype that you want to use. For example, karaf-camel-log-archetype will create a new Camel log example.
 
-. This will create a maven project with all required dependencies. Maven properties and plug-ins that are used to create Docker images are added to the *_pom.xml_* file.
+This will create a maven project with all required dependencies. Maven properties and plug-ins that are used to create Docker images are added to the *_pom.xml_* file.
+
+
+=== Fabric8 Maven Workflow
+Creates a new project based off a Maven application template created through Archetype catalog. This catalog provides examples of Java and Karaf projects and supports S2I and Maven deployment workflows.
+
 
 . Set the following environment variables to communicate with OpenShift and a Docker daemon:
 
